@@ -1,0 +1,19 @@
+{
+  "name": "web2_labos5",
+  "version": "1.0.0",
+  "description": "Progressive Web App created for laboratory work in Advanced web development course @FER",
+  "main": "index.js",
+  "scripts": {
+    "serve": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.15",
+    "serve": "^13.0.2"
+  }
+}
