@@ -1,0 +1,16 @@
+{
+  "name": "PWA WEB2 Lab5",
+  "short_name": "PWA",
+  "description": "Progressive Web App examples used for laboratory work for Advanced web development course @FER",
+  "icons": [
+    {
+      "src": "image/logo.png",
+      "sizes": "225x225",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#5f9ea0",
+  "background_color": "#5f9ea0"
+}

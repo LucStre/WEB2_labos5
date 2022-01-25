@@ -15,7 +15,17 @@
         <h3>Home</h3>
         <a href='/camera'>Camera</a>
     </div>
-
+    <script>
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/install.js').then(function (registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function (err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    </script>
 </body>
 
 </html>
