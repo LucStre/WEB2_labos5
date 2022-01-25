@@ -45,9 +45,14 @@
             }
         };
         function stopCapture() {
-            document.getElementById("player").srcObject.getVideoTracks().forEach(function (track) {
-                track.stop();
-            });
+            try {
+                document.getElementById("player").srcObject.getVideoTracks().forEach(function (track) {
+                    track.stop();
+                });
+            } catch {
+                console.log("Make sure to start camera first.")
+            }
+
         }
     </script>
 </body>
