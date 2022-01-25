@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "views")));
 //app to understand incoming data as JSON
 app.use(express.json());
 
@@ -16,6 +17,14 @@ app.get("/", (req, res) => {
 
 app.get("/camera", (req, res) => {
   res.render("camera");
+});
+
+app.get("/offline", (req, res) => {
+  res.render("offline");
+});
+
+app.use((req, res) => {
+  res.render("notfound");
 });
 
 app.listen(port, () => {
