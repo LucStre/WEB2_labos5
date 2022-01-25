@@ -2,12 +2,12 @@ const filesToCache = [
   "/",
   "manifest.json",
   "/camera",
-  "/notfound.ejs",
   "/image/logo.png",
+  "offline.ejs",
+  "notfound.ejs",
 ];
 
 const staticCacheName = "static-cache-v1";
-
 self.addEventListener("install", (event) => {
   console.log("Attempting to install service worker and cache static assets");
   event.waitUntil(
@@ -41,13 +41,13 @@ self.addEventListener("fetch", (event) => {
       .then((response) => {
         if (response) {
           console.log("Found " + event.request.url + " in cache!");
-          return response;
+          //return response;
         }
         console.log("Network request for ", event.request.url);
         return fetch(event.request).then((response) => {
           console.log("response.status = " + response.status);
           if (response.status === 404) {
-            return caches.match("/notfound.ejs");
+            return caches.match("notfound.ejs");
           }
           return caches.open(staticCacheName).then((cache) => {
             console.log("Caching: " + event.request.url);
@@ -58,7 +58,7 @@ self.addEventListener("fetch", (event) => {
       })
       .catch((error) => {
         console.log("Error", event.request.url, error);
-        return caches.match("/offline.ejs");
+        return caches.match("offline.ejs");
       })
   );
 });
